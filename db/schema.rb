@@ -1,7 +1,7 @@
 
+ActiveRecord::Schema.define(version: 2020_09_05_033317) do
 
-ActiveRecord::Schema.define(version: 2020_09_02_132755) do
-
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pictures", force: :cascade do |t|
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_09_02_132755) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image"
+    t.text "introduce"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
