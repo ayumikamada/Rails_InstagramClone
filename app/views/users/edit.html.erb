@@ -9,7 +9,7 @@
   </div><br>
   <div class="field">
     <%= form.label :user_image %>
-    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+    <%= image_tag(@user.image.thumb.url) if @user.image && @user.image.thumb.url %>
     <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
     <%= form.hidden_field :image_cache %><br><br>
   </div>

@@ -1,10 +1,13 @@
 <h4><%= @user.name %>さんのページ</h4><br>
-<p>メールアドレス: <%= @user.email %></p>
-<p>自己紹介: <%= @user.introduce %></p>
-<% if @user.image? %>                                                              
-  <%= image_tag @user.image.url %>
+<%= form_for(@user) do |f| %>
+  <% if @user.image? %>                                                              
+   <%= image_tag @user.image.thumb.url %>
+  <% end %>
+  <br><br>
+  <p>メールアドレス: <%= @user.email %></p>
+  <p>自己紹介: <%= @user.introduce %></p>
+  <br>
+  <%= link_to "プロフィール編集", edit_user_path %><br>
+  <%= link_to "投稿記事一覧", pictures_path %><br>
+  <%= link_to 'お気に入り一覧', favorites_path %>
 <% end %>
-<br>
-<%= link_to "プロフィール編集へ", edit_user_path %><br>
-<%= link_to "投稿記事一覧へ", pictures_path %><br>
-<%= link_to 'お気に入り一覧へ', favorites_path %>

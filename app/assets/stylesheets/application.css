@@ -32,7 +32,7 @@
    }
   header {
     width: 100%;
-    background-color: #bfd6ec;
+    background-color: #f1e9a3;
     height: 60px;
     margin: 0
    }
@@ -63,4 +63,12 @@
    }
    .field {
     text-align: center;
+   }
+   .contact_name input[type="text"] {
+    width: 700px;
+    height: 30px;
+   }
+   .contact_content input[type="text"] {
+    width: 700px;
+    height: 60px;
    }

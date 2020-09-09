@@ -1,26 +1,26 @@
-<h1>お気に入り一覧</h1>
+<h4>お気に入り一覧</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>投稿者</th>
-      <th>タイトル</th>
-      <th>内容</th>
-      <th>画像</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @favorites.each do |favorite| %>
+<div class="container">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= favorite.picture.user.name %></td>
-        <td><%= favorite.picture.title %></td>
-        <td><%= favorite.picture.content %></td>
-        <td><%= image_tag favorite.picture.image.to_s, size: '70x70' %></td>
+        <th>投稿者</th>
+        <th>タイトル</th>
+        <th>内容</th>
+        <th>画像</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @favorites.each do |favorite| %>
+        <tr>
+          <td><%= favorite.picture.user.name %></td>
+          <td><%= favorite.picture.title %></td>
+          <td><%= favorite.picture.content %></td>
+          <td><%= image_tag favorite.picture.image.to_s, size: '70x70' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 <%= link_to 'プロフィールページへ', user_path(current_user.id), class: 'btn btn-default' %>
