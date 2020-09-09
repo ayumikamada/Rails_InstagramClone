@@ -1,27 +1,18 @@
 <%= form_with(model: @user, local: true) do |form| %>
-<div class="user_name">
-  <%= form.label :name, '名前' %><br>
-  <%= form.text_field :name %>
-</div><br>
-<div class="user_introduce">
-  <%= form.label :introduce, '自己紹介' %><br>
-  <%= form.text_field :introduce %>
-</div><br>
-<div class="user_password_digest">
-  <%= form.label :password_digest, '新しいパスワード' %><br>
-  <%= form.text_field :password_digest %>
-</div><br>
-<div class="user_password_confirmation">
-  <%= form.label :password_confirmation, '新しいパスワードを再入力' %><br>
-  <%= form.text_field :password_confirmation %>
-</div><br>
-
-<div class="field">
-  <%= form.label :user_image %>
-  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-  <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
-  <%= form.hidden_field :image_cache %><br><br>
-</div>
-<%= form.submit '編集', class: 'btn btn-default' %>
-<%= link_to "戻る", new_user_path, class: 'btn btn-default' %>
-<% end %>
+  <div class="user_name">
+    <%= form.label :name, '名前' %><br>
+    <%= form.text_field :name %>
+  </div><br>
+  <div class="user_introduce">
+    <%= form.label :introduce, '自己紹介' %><br>
+    <%= form.text_field :introduce %>
+  </div><br>
+  <div class="field">
+    <%= form.label :user_image %>
+    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+    <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+    <%= form.hidden_field :image_cache %><br><br>
+  </div>
+  <%= form.submit '編集', class: 'btn btn-default' %>
+  <%= link_to "戻る", user_path(current_user.id), class: 'btn btn-default' %>
+  <% end %>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, ]
+  before_action :login_check, only: [:show, :edit, :update, ]
 
   def new
     @user = User.new
@@ -12,16 +14,14 @@ class UsersController < ApplicationController
     end
   end
   def show
-    @user = User.find(params[:id])
   end
   def edit
-    @user = User.find(params[:id])
   end
   def update
     @user = User.find(params[:id])
     if current_user == @user
       if @user.update(user_params)
-        redirect_to new_user_path, notice: "編集完了！"
+        redirect_to user_path(current_user.id), notice: "編集完了！"
       else
         render :edit
       end
@@ -31,5 +31,13 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache, :introduce)
+  end
+  def set_user
+    @user = User.find(params[:id])
+  end
+  def login_check
+    unless logged_in?
+      redirect_to sessions_path
+    end
   end
 end
