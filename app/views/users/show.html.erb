@@ -7,7 +7,9 @@
   <p>メールアドレス: <%= @user.email %></p>
   <p>自己紹介: <%= @user.introduce %></p>
   <br>
+  <% #if current_user.id == @user_id %>
   <%= link_to "プロフィール編集", edit_user_path %><br>
   <%= link_to "投稿記事一覧", pictures_path %><br>
   <%= link_to 'お気に入り一覧', favorites_path %>
+  <% #end %>
 <% end %>

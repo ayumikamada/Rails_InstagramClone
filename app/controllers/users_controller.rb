@@ -19,7 +19,6 @@ class UsersController < ApplicationController
   def edit
   end
   def update
-    @user = User.find(params[:id])
     if current_user == @user
       if @user.update(user_params)
         redirect_to user_path(current_user.id), notice: "編集完了！"
@@ -35,6 +34,9 @@ class UsersController < ApplicationController
   end
   def set_user
     @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to user_path(current_user.id)
+    end
   end
   def login_check
     unless logged_in?
