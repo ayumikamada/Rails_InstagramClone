@@ -61,9 +61,6 @@
     width: 700px;
     height: 60px;
    }
-   .field {
-    text-align: center;
-   }
    .contact_name input[type="text"] {
     width: 700px;
     height: 30px;
@@ -71,4 +68,7 @@
    .contact_content input[type="text"] {
     width: 700px;
     height: 60px;
+   }
+   .field {
+    display: inline-block;
    }

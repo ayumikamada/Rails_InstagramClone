@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -14,10 +15,13 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
   def show
   end
+
   def edit
   end
+
   def update
     if current_user == @user
       if @user.update(user_params)
@@ -29,18 +33,22 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache, :introduce)
   end
+
   def set_user
     @user = User.find(params[:id])
     if current_user != @user
       redirect_to user_path(current_user.id)
     end
   end
+
   def login_check
     unless logged_in?
       redirect_to new_session_path
     end
   end
+  
 end
