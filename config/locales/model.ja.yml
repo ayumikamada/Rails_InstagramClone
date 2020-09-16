@@ -3,6 +3,9 @@ ja:
     models:
       picture: 投稿
       user: ユーザー
+      session: ログイン
+      contact: 問い合わせ
+      favorite: お気に入り
     attributes:
       picture:
         title: タイトル
@@ -12,6 +15,7 @@ ja:
         title: タイトル
         name: 名前
         image: 画像
+        introduce: 自己紹介
         email: メールアドレス
         current_password: 現在のパスワード
         password: パスワード

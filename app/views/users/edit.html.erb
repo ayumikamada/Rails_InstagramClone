@@ -1,18 +1,14 @@
 <%= form_with(model: @user, local: true) do |form| %>
-  <div class="user_name">
-    <%= form.label :name, '名前' %><br>
-    <%= form.text_field :name %>
-  </div><br>
-  <div class="user_introduce">
-    <%= form.label :introduce, '自己紹介' %><br>
-    <%= form.text_field :introduce %>
-  </div><br>
-  <div class="field">
-    <%= form.label :user_image %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name, class: "field_area", size: "70*30" %><br><br>
+  <%= form.label :introduce %><br>
+  <%= form.text_area :introduce, class: "field_area", size: "70*40" %><br><br>
+  <div class="user_image">
+    <%= form.label :user_image, "画像" %>
     <%= image_tag(@user.image.thumb.url) if @user.image && @user.image.thumb.url %>
-    <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+    <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "field" %>
     <%= form.hidden_field :image_cache %><br><br>
   </div>
   <%= form.submit '編集', class: 'btn btn-default' %>
   <%= link_to "戻る", user_path(current_user.id), class: 'btn btn-default' %>
-  <% end %>
+<% end %>

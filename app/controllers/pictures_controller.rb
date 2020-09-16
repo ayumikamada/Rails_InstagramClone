@@ -15,22 +15,28 @@ class PicturesController < ApplicationController
   end
 
   def confirm
-    @picture = Picture.new(picture_params)
-    @picture.user_id = current_user.id
-    render :new if @picture.invalid?
+    # @picture = Picture.new(picture_params)
+    # @picture.user_id = current_user.id
+    @picture = current_user.pictures.build(picture_params)
+  #  render :new if @picture.valid?
+    if @picture.invalid?
+      render 'new'
+    end
   end
 
   def create
-    @picture = Picture.new(picture_params)
-    @picture.user_id = current_user.id
+    # @picture = Picture.new(picture_params)
+    # @picture.user_id = current_user.id
+    @picture = current_user.pictures.build(picture_params)
     if params[:back]
-      render :new
+      @picture = Picture.new(picture_params)
+      render 'new'
     else
       if @picture.save
         PictureMailer.picture_mail(@picture).deliver
         redirect_to pictures_path, notice: "投稿完了！"
       else
-        render :new
+        render 'new'
       end
     end
   end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, ]
   before_action :login_check, only: [:show, :edit, :update, ]
+  before_action :after_login, only: [:new]
 
   def new
     @user = User.new
@@ -48,6 +49,12 @@ class UsersController < ApplicationController
   def login_check
     unless logged_in?
       redirect_to new_session_path
+    end
+  end
+
+  def after_login
+    if logged_in?
+      redirect_to user_path(current_user.id)
     end
   end
   

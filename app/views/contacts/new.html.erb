@@ -1,16 +1,10 @@
 <h4>お問い合わせ</h4>
 <%= form_with(model: @contact, local: true) do |form| %>
-    <div class="contact_name">
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
-    </div><br>
-    <div class="contact_name">
-      <%= form.label :email %><br>
-      <%= form.text_field :email %>
-    </div><br>
-    <div class="contact_content">
-      <%= form.label :content %><br>
-      <%= form.text_field :content %>
-    </div><br>
-    <%= form.submit '送信', class: 'btn btn-default' %>
-  <% end %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name, class: "field_area", size: "50*20" %><br><br>
+  <%= form.label :email %><br>
+  <%= form.text_field :email, class: "field_area", size: "50*20" %><br><br>
+  <%= form.label :content %><br>
+  <%= form.text_area :content, class: "field_area", size: "50*40" %><br><br>
+  <%= form.submit '送信', class: 'btn btn-default' %>
+<% end %>

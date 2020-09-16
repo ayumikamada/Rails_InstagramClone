@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorites = Favorite.all.order(created_at: :desc)
+    @favorites = current_user.favorites.order(created_at: :desc)
   end
 
   def create

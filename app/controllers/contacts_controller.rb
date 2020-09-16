@@ -1,15 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
-
-  def index
-  end
-
-  def edit
-  end
-
-  def show
-  end
-
+  
   def new
     @contact = Contact.new
   end
@@ -18,7 +8,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to pictures_path, notice: 'Contact was successfully created.'
+      redirect_to pictures_path, notice: '問い合わせ内容を送信しました！'
     else
       render :new
     end

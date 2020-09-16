@@ -53,22 +53,7 @@
     position: absolute;
     bottom: 0;
    }
-   .picture_title input[type="text"] {
-    width: 700px;
-    height: 30px;
-   }
-   .picture_content input[type="text"] {
-    width: 700px;
-    height: 60px;
-   }
-   .contact_name input[type="text"] {
-    width: 700px;
-    height: 30px;
-   }
-   .contact_content input[type="text"] {
-    width: 700px;
-    height: 60px;
-   }
    .field {
-    display: inline-block;
-   }
+    padding-left: 45%;
+   } 
+   
